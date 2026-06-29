@@ -145,7 +145,7 @@ export const StudioIcon: FC<{ name: string; className?: string; alt?: string }> 
 }) => {
   return (
     <img
-      src={`/icons/${encodeURIComponent(name)}.svg`}
+      src={`/studio-icons/${encodeURIComponent(name)}.svg`}
       alt={alt}
       aria-hidden={alt === '' ? true : undefined}
       loading="lazy"

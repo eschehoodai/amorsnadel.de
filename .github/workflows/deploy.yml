@@ -34,7 +34,7 @@ jobs:
         set ftp:ssl-allow true
         set ftp:ssl-force true
         set ssl:verify-certificate no
-        rm -r /httpdocs/icons
-        mirror -R -v ./dist/ /httpdocs/
+        rm -r /amorsnadel.de/httpdocs/studio-icons || true
+        mirror -R -v ./dist/ /amorsnadel.de/httpdocs/
         quit
         EOF
