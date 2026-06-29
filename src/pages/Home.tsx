@@ -505,8 +505,7 @@ export const Home: FC = () => {
             </div>
             <div className="text-soft-white/80 leading-relaxed font-sans text-body pt-2">
               <p className="font-medium text-soft-white">AmorsNadel Atelier</p>
-              <p className="mt-1 text-soft-white/60">[Straße &amp; Hausnummer]</p>
-              <p className="text-soft-white/60">Dresden · Kamenz · Zittau</p>
+              <p className="mt-1 text-soft-white/70">Exklusives Home-Studio &amp; Mobiler Service in Dresden, Kamenz, Zittau</p>
             </div>
           </div>
 
