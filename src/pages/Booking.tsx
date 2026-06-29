@@ -239,19 +239,42 @@ export const Booking: FC = () => {
     window.scrollTo({ top: 300, behavior: 'smooth' });
   };
 
-  const handleSubmitForm = (e: React.FormEvent) => {
+  const handleSubmitForm = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!validateStep3()) return;
 
     setIsSubmitting(true);
 
-    setTimeout(() => {
-      const code = `AMOR-${formData.date.replace(/-/g, '')}-${Math.floor(100 + Math.random() * 900)}`;
+    const code = `AMOR-${formData.date ? formData.date.replace(/-/g, '') : 'FLEX'}-${Math.floor(100 + Math.random() * 900)}`;
+
+    try {
+      const response = await fetch('/send_mail.php', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          ...formData,
+          bookingType,
+          submissionCode: code,
+          formType: 'Haupt-Buchungsformular'
+        }),
+      });
+
+      const result = await response.json();
+      if (result && result.code) {
+        setSubmissionCode(result.code);
+      } else {
+        setSubmissionCode(code);
+      }
+    } catch (error) {
+      console.error('Fehler beim Senden des Formulars:', error);
       setSubmissionCode(code);
+    } finally {
       setIsSubmitting(false);
       setFormSubmitted(true);
       window.scrollTo({ top: 300, behavior: 'smooth' });
-    }, 1500);
+    }
   };
 
   const toggleFaq = (id: string) => {

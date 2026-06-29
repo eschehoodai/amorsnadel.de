@@ -147,18 +147,32 @@ export const SocialBooking: React.FC = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
-  const handleSubmitForm = (e: React.FormEvent) => {
+  const handleSubmitForm = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!validateStep2()) return;
 
     setIsSubmitting(true);
-    
-    // Simulate sending data (this could later be a mailto or a whatsapp redirect)
-    setTimeout(() => {
+    const code = `AMOR-SOC-${formData.date ? formData.date.replace(/-/g, '') : 'FLEX'}-${Math.floor(100 + Math.random() * 900)}`;
+
+    try {
+      await fetch('/send_mail.php', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          ...formData,
+          submissionCode: code,
+          formType: 'Schnellbuchung (Social Media)'
+        }),
+      });
+    } catch (error) {
+      console.error('Fehler beim Senden des Formulars:', error);
+    } finally {
       setIsSubmitting(false);
       setFormSubmitted(true);
       window.scrollTo({ top: 0, behavior: 'smooth' });
-    }, 1500);
+    }
   };
 
   const year = currentMonth.getFullYear();
