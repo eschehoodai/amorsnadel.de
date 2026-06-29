@@ -34,6 +34,7 @@ jobs:
         set ftp:ssl-allow true
         set ftp:ssl-force true
         set ssl:verify-certificate no
-        mirror -R -v ./dist/ /amorsnadel.de/httpdocs/
+        rm -r /httpdocs/icons
+        mirror -R -v ./dist/ /httpdocs/
         quit
         EOF
