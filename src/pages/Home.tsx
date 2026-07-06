@@ -475,7 +475,7 @@ export const Home: FC = () => {
               Terminanfrage online stellen
             </Link>
             <a
-              href="mailto:atelier@amorsnadel.de"
+              href="mailto:amorsnadel@gmail.com"
               className="px-8 py-3.5 bg-transparent hover:bg-soft-white/10 text-soft-white text-xs font-mono uppercase tracking-[0.2em] border border-soft-white/30 transition-all"
             >
               Schreib uns eine E-Mail
@@ -530,8 +530,8 @@ export const Home: FC = () => {
             </div>
             <div className="text-soft-white/80 leading-relaxed text-caption word-break font-sans pt-2">
               <p className="text-caption text-soft-white/40 font-mono">E-Mail</p>
-              <a href="mailto:atelier@amorsnadel.de" className="block text-soft-white hover:text-old-gold transition-colors text-body font-semibold truncate">
-                atelier@amorsnadel.de
+              <a href="mailto:amorsnadel@gmail.com" className="block text-soft-white hover:text-old-gold transition-colors text-body font-semibold truncate">
+                amorsnadel@gmail.com
               </a>
               <p className="text-caption text-soft-white/40 font-mono mt-2">Telefon</p>
               <a href="tel:+491744312856" className="block text-soft-white hover:text-old-gold transition-colors text-body font-semibold">

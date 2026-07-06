@@ -46,10 +46,11 @@ export const Datenschutz: FC = () => {
               Die Datenverarbeitung auf dieser Website erfolgt durch den Websitebetreiber:
             </p>
             <p className="text-body text-soft-white/80 font-light leading-relaxed italic pl-4 border-l border-old-gold/40">
-              Sergey [Nachname]<br />
-              [Straße & Hausnummer]<br />
-              [PLZ] [Ort]<br />
-              E-Mail: <a href="mailto:atelier@amorsnadel.de" className="text-old-gold hover:text-soft-white transition-colors">atelier@amorsnadel.de</a>
+              Sergey Kontratiev<br />
+              Neschwitzer Str. 11<br />
+              01917 Kamenz<br />
+              Telefon: 0174 4312856<br />
+              E-Mail: <a href="mailto:amorsnadel@gmail.com" className="text-old-gold hover:text-soft-white transition-colors">amorsnadel@gmail.com</a>
             </p>
             <p className="text-body text-soft-white/80 font-light leading-relaxed">
               <strong>Wie erfassen wir Ihre Daten?</strong><br />
@@ -104,7 +105,7 @@ export const Datenschutz: FC = () => {
             </p>
             <h3 className="font-sans text-lg font-semibold text-soft-white mt-4">Hinweis zur verantwortlichen Stelle</h3>
             <p className="text-body text-soft-white/80 font-light leading-relaxed">
-              Die verantwortliche Stelle für die Datenverarbeitung auf dieser Website ist die im Impressum genannte natürliche Person (Sergey [Nachname]).
+              Die verantwortliche Stelle für die Datenverarbeitung auf dieser Website ist die im Impressum genannte natürliche Person (Sergey Kontratiev).
             </p>
             <h3 className="font-sans text-lg font-semibold text-soft-white mt-4">Widerruf Ihrer Einwilligung zur Datenverarbeitung</h3>
             <p className="text-body text-soft-white/80 font-light leading-relaxed">

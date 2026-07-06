@@ -37,15 +37,9 @@ export const Impressum: FC = () => {
             </h2>
             <p className="text-body text-soft-white/80 font-light leading-relaxed">
               <strong>AmorsNadel</strong><br />
-              Inhaber: Sergey [Nachname]<br />
-              <br />
-              <span className="text-tattoo-red/80 text-xs uppercase tracking-wider font-mono">Gesetzliche Pflichtangabe:</span><br />
-              [Ihre private Wohnadresse oder die Adresse Ihres Impressum-Services]<br />
-              [PLZ] [Ort]<br />
-              <br />
-              <em className="text-xs text-soft-white/50 block mt-2">
-                Hinweis: Eine ladungsfähige Anschrift ist nach § 5 TMG zwingend erforderlich. Ein Postfach reicht nicht aus. Wenn Sie Ihre Privatadresse verbergen möchten, benötigen Sie einen Impressum-Service (Virtual Office).
-              </em>
+              Inhaber: Sergey Kontratiev<br />
+              Neschwitzer Str. 11<br />
+              01917 Kamenz
             </p>
           </section>
 
@@ -55,17 +49,7 @@ export const Impressum: FC = () => {
             </h2>
             <p className="text-body text-soft-white/80 font-light leading-relaxed">
               Telefon: 0174 4312856<br />
-              E-Mail: <a href="mailto:atelier@amorsnadel.de" className="text-old-gold hover:text-soft-white transition-colors">atelier@amorsnadel.de</a>
-            </p>
-          </section>
-
-          <section className="space-y-4">
-            <h2 className="font-sans text-xl font-semibold text-soft-white border-b border-soft-white/10 pb-2">
-              Aufsichtsbehörde
-            </h2>
-            <p className="text-body text-soft-white/80 font-light leading-relaxed">
-              Zuständiges Gesundheitsamt bzw. Gewerbeamt der jeweiligen Betriebsstätte (Kamenz / Dresden / Zittau).<br />
-              [Name und Anschrift der zuständigen Behörde bei Bedarf hier eintragen]
+              E-Mail: <a href="mailto:amorsnadel@gmail.com" className="text-old-gold hover:text-soft-white transition-colors">amorsnadel@gmail.com</a>
             </p>
           </section>
 
@@ -84,9 +68,9 @@ export const Impressum: FC = () => {
               Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV
             </h2>
             <p className="text-body text-soft-white/80 font-light leading-relaxed">
-              Sergey [Nachname]<br />
-              [Ihre private Wohnadresse oder Adresse Ihres Impressum-Services]<br />
-              [PLZ] [Ort]
+              Sergey Kontratiev<br />
+              Neschwitzer Str. 11<br />
+              01917 Kamenz
             </p>
           </section>
 

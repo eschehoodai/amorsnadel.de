@@ -828,8 +828,8 @@ export const Booking: FC = () => {
                   <Mail className="h-4.5 w-4.5 text-tattoo-red mt-0.5 shrink-0" />
                   <div>
                     <span className="block text-old-gold uppercase text-eyebrow">E-Mail</span>
-                    <a href="mailto:atelier@amorsnadel.de" className="text-soft-white/90 hover:text-old-gold transition-colors font-sans text-body">
-                      atelier@amorsnadel.de
+                    <a href="mailto:amorsnadel@gmail.com" className="text-soft-white/90 hover:text-old-gold transition-colors font-sans text-body">
+                      amorsnadel@gmail.com
                     </a>
                   </div>
                 </li>

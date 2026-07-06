@@ -188,11 +188,11 @@ export const WhatsAppWidget: FC = () => {
 
               {/* E-Mail address shortcut */}
               <a
-                href="mailto:atelier@amorsnadel.de"
+                href="mailto:amorsnadel@gmail.com"
                 className="w-full flex items-center justify-center space-x-2 py-2 border border-soft-white/10 hover:border-old-gold/50 bg-surface-dark hover:bg-ink-black text-soft-white/70 hover:text-soft-white transition-all duration-300 text-[9px] uppercase tracking-widest font-mono"
               >
                 <Mail className="h-3.5 w-3.5 text-old-gold" />
-                <span>atelier@amorsnadel.de</span>
+                <span>amorsnadel@gmail.com</span>
               </a>
             </div>
           </motion.div>

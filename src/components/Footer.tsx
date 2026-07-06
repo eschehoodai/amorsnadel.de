@@ -111,9 +111,9 @@ export const Footer: FC = () => {
                 </a>
               </li>
               <li>
-                <a href="mailto:atelier@amorsnadel.de" className="flex items-center space-x-3 text-sm text-soft-white/75 hover:text-old-gold transition-colors">
+                <a href="mailto:amorsnadel@gmail.com" className="flex items-center space-x-3 text-sm text-soft-white/75 hover:text-old-gold transition-colors">
                   <Mail className="h-4.5 w-4.5 text-tattoo-red shrink-0" />
-                  <span>atelier@amorsnadel.de</span>
+                  <span>amorsnadel@gmail.com</span>
                 </a>
               </li>
             </ul>
