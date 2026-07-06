@@ -1,5 +1,5 @@
 import React, { useState, useEffect, FC } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { SEO } from '../components/SEO';
 import { 
   Calendar as CalendarIcon, 
@@ -37,12 +37,11 @@ interface FormState {
 
 export const Booking: FC = () => {
   const location = useLocation();
+  const navigate = useNavigate();
   const preselected = location.state as { preselectedArtist?: string; preselectedStyle?: string } | null;
 
   const [currentStep, setCurrentStep] = useState<number>(1);
   const [bookingType, setBookingType] = useState<'flexible' | 'fixed'>('flexible');
-  const [formSubmitted, setFormSubmitted] = useState<boolean>(false);
-  const [submissionCode, setSubmissionCode] = useState<string>('');
   const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
 
   // Calendar state
@@ -246,6 +245,7 @@ export const Booking: FC = () => {
     setIsSubmitting(true);
 
     const code = `AMOR-${formData.date ? formData.date.replace(/-/g, '') : 'FLEX'}-${Math.floor(100 + Math.random() * 900)}`;
+    let finalCode = code;
 
     try {
       const response = await fetch('/send_mail.php', {
@@ -263,17 +263,25 @@ export const Booking: FC = () => {
 
       const result = await response.json();
       if (result && result.code) {
-        setSubmissionCode(result.code);
-      } else {
-        setSubmissionCode(code);
+        finalCode = result.code;
       }
     } catch (error) {
       console.error('Fehler beim Senden des Formulars:', error);
-      setSubmissionCode(code);
     } finally {
       setIsSubmitting(false);
-      setFormSubmitted(true);
-      window.scrollTo({ top: 300, behavior: 'smooth' });
+      navigate('/danke', {
+        state: {
+          submissionCode: finalCode,
+          name: formData.name,
+          date: formData.date,
+          timeSlot: formData.timeSlot,
+          email: formData.email,
+          style: formData.style,
+          bookingType,
+          formType: 'Haupt-Buchungsformular'
+        }
+      });
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     }
   };
 
@@ -328,9 +336,7 @@ export const Booking: FC = () => {
           
           <div className="lg:col-span-8 bg-surface-dark border border-soft-white/10 p-6 md:p-10 relative">
             <AnimatePresence mode="wait">
-              
-              {!formSubmitted ? (
-                <div className="space-y-10" id="booking-interactive-form">
+              <div className="space-y-10" id="booking-interactive-form">
                   
                   <div className="flex items-center justify-between pb-6 border-b border-soft-white/10 text-eyebrow font-mono tracking-widest text-soft-white/40">
                     <span className={`font-bold transition-colors duration-300 ${currentStep === 1 ? 'text-old-gold' : 'text-soft-white/60'}`}>
@@ -809,79 +815,6 @@ export const Booking: FC = () => {
                   )}
 
                 </div>
-              ) : (
-                
-                <motion.div
-                  initial={{ opacity: 0, scale: 0.95 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  className="space-y-8 text-center py-8"
-                  id="booking-success"
-                >
-                  <div className="flex justify-center">
-                    <CheckCircle2 className="h-16 w-16 text-old-gold animate-bounce" />
-                  </div>
-
-                  <div className="space-y-2">
-                    <h3 className="font-hand text-2xl sm:text-3xl text-soft-white">Vielen Dank für deine Anfrage!</h3>
-                    <p className="text-body text-soft-white/80 max-w-md mx-auto">
-                      Deine Wunschzeit wurde reserviert. Unser Team meldet sich in Kürze persönlich bei dir mit weiteren Skizzenentwürfen und dem finalen Termin.
-                    </p>
-                  </div>
-
-                  <div className="border border-old-gold/20 bg-ink-black/80 max-w-md mx-auto p-6 font-mono text-caption text-left text-soft-white/80 space-y-3">
-                    <div className="border-b border-soft-white/10 pb-2.5 flex justify-between text-caption">
-                      <span className="text-old-gold uppercase">Referenz-Code:</span>
-                      <strong className="text-soft-white">{submissionCode}</strong>
-                    </div>
-                    <div className="flex justify-between">
-                      <span>Wunschdatum:</span>
-                      <span className="text-soft-white font-bold">{bookingType === 'fixed' && formData.date ? formatDateGerman(formData.date) : 'Flexibel / Nach Vereinbarung'}</span>
-                    </div>
-                    {bookingType === 'fixed' && formData.timeSlot && (
-                      <div className="flex justify-between">
-                        <span>Wunschzeit:</span>
-                        <span className="text-soft-white font-bold">{formData.timeSlot}</span>
-                      </div>
-                    )}
-                    <div className="flex justify-between">
-                      <span>Name:</span>
-                      <span className="text-soft-white">{formData.name}</span>
-                    </div>
-                    <div className="flex justify-between">
-                      <span>Wunschstil:</span>
-                      <span className="text-soft-white">{formData.style}</span>
-                    </div>
-                  </div>
-
-                  <div className="space-y-4 pt-4 max-w-md mx-auto text-body text-soft-white/75 font-light leading-relaxed">
-                    <p>
-                      Wir senden dir eine vorläufige Bestätigung an <strong>{formData.email}</strong>.
-                    </p>
-                    <button
-                      onClick={() => {
-                        setFormData({
-                          style: 'Fineline',
-                          placement: '',
-                          size: 'Mittel (ca. 10-15 cm)',
-                          artist: 'Sergey',
-                          name: '',
-                          email: '',
-                          phone: '',
-                          description: '',
-                          date: '',
-                          timeSlot: '',
-                          newsletter: false,
-                        });
-                        setFormSubmitted(false);
-                        setCurrentStep(1);
-                      }}
-                      className="px-6 py-3 bg-transparent border border-soft-white/20 text-soft-white/70 hover:text-soft-white hover:border-soft-white uppercase text-eyebrow font-mono tracking-widest"
-                    >
-                      Eine weitere Anfrage stellen
-                    </button>
-                  </div>
-                </motion.div>
-              )}
             </AnimatePresence>
           </div>
 

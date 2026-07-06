@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { SEO } from '../components/SEO';
 import { 
   ChevronLeft, 
@@ -22,8 +22,8 @@ interface FormState {
 }
 
 export const SocialBooking: React.FC = () => {
+  const navigate = useNavigate();
   const [currentStep, setCurrentStep] = useState<number>(1);
-  const [formSubmitted, setFormSubmitted] = useState<boolean>(false);
   const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
   const [fieldErrors, setFieldErrors] = useState<Record<string, string>>({});
 
@@ -153,9 +153,10 @@ export const SocialBooking: React.FC = () => {
 
     setIsSubmitting(true);
     const code = `AMOR-SOC-${formData.date ? formData.date.replace(/-/g, '') : 'FLEX'}-${Math.floor(100 + Math.random() * 900)}`;
+    let finalCode = code;
 
     try {
-      await fetch('/send_mail.php', {
+      const response = await fetch('/send_mail.php', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -166,11 +167,25 @@ export const SocialBooking: React.FC = () => {
           formType: 'Schnellbuchung (Social Media)'
         }),
       });
+      const result = await response.json();
+      if (result && result.code) {
+        finalCode = result.code;
+      }
     } catch (error) {
       console.error('Fehler beim Senden des Formulars:', error);
     } finally {
       setIsSubmitting(false);
-      setFormSubmitted(true);
+      navigate('/danke', {
+        state: {
+          submissionCode: finalCode,
+          name: formData.name,
+          date: formData.date,
+          timeSlot: formData.timeSlot,
+          email: formData.email,
+          service: formData.service,
+          formType: 'Schnellbuchung (Social Media)'
+        }
+      });
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
   };
@@ -224,7 +239,6 @@ export const SocialBooking: React.FC = () => {
         </div>
 
         <AnimatePresence mode="wait">
-          {!formSubmitted ? (
             <motion.div 
               key={`step-${currentStep}`}
               initial={{ opacity: 0, x: 20 }}
@@ -444,30 +458,6 @@ export const SocialBooking: React.FC = () => {
               )}
 
             </motion.div>
-          ) : (
-            <motion.div 
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              className="text-center py-12 space-y-6"
-            >
-              <div className="mx-auto w-16 h-16 bg-old-gold/10 flex items-center justify-center rounded-full">
-                <CheckCircle2 className="h-10 w-10 text-old-gold" />
-              </div>
-              <h2 className="font-display text-2xl text-soft-white">Anfrage erhalten!</h2>
-              <p className="text-soft-white/60 font-light text-sm">
-                Vielen Dank, {formData.name}. Wir haben deine Anfrage für den {formatDateGerman(formData.date)} um {formData.timeSlot} Uhr erhalten und werden uns schnellstmöglich bei dir melden, um den Termin zu bestätigen.
-              </p>
-              
-              <div className="pt-8 flex flex-col gap-3">
-                <Link to="/" className="py-3 border border-old-gold text-old-gold font-mono text-xs uppercase tracking-wider block w-full text-center">
-                  Zurück zur Homepage
-                </Link>
-                <a href="https://instagram.com" className="py-3 bg-surface-dark/40 text-soft-white font-mono text-xs uppercase tracking-wider block w-full text-center flex items-center justify-center gap-2">
-                  <Instagram className="h-4 w-4" /> Folge uns auf Instagram
-                </a>
-              </div>
-            </motion.div>
-          )}
         </AnimatePresence>
 
       </main>

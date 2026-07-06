@@ -13,6 +13,7 @@ import { Courses } from './pages/Courses';
 import { Impressum } from './pages/Impressum';
 import { Datenschutz } from './pages/Datenschutz';
 import { SocialBooking } from './pages/SocialBooking';
+import { Danke } from './pages/Danke';
 
 // Scroll to Top on Page navigation
 const ScrollToTop: FC = () => {
@@ -49,6 +50,7 @@ const AppContent: FC = () => {
           <Route path="/termin" element={<SocialBooking />} />
           <Route path="/impressum" element={<Impressum />} />
           <Route path="/datenschutz" element={<Datenschutz />} />
+          <Route path="/danke" element={<Danke />} />
         </Routes>
       </main>
 
