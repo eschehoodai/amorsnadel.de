@@ -99,9 +99,9 @@ export const Footer: FC = () => {
               <li className="flex items-start space-x-3 text-sm text-soft-white/75">
                 <MapPin className="h-4.5 w-4.5 text-tattoo-red shrink-0 mt-0.5" />
                 <span>
-                  AmorsNadel Atelier<br />
-                  Exklusives Home-Studio &amp;<br />
-                  Mobiler Service in Dresden, Kamenz, Zittau
+                  Tattoo-Studio AmorsNadel<br />
+                  Bahnhofstr. 17, 02689 Sohland<br />
+                  Termine nach Vereinbarung
                 </span>
               </li>
               <li>

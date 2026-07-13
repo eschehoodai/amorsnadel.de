@@ -2,6 +2,7 @@ import { FC, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import { HelmetProvider } from 'react-helmet-async';
 import { Header } from './components/Header';
+import { AnnouncementBanner } from './components/AnnouncementBanner';
 import { Footer } from './components/Footer';
 import { WhatsAppWidget } from './components/WhatsAppWidget';
 import { Home } from './pages/Home';
@@ -37,6 +38,9 @@ const AppContent: FC = () => {
 
       {/* Navigation Header */}
       {!isSocialBooking && <Header />}
+
+      {/* Rotes Bekanntmachungs-Laufbanner direkt unter dem Header */}
+      {!isSocialBooking && <AnnouncementBanner />}
 
       {/* Main Content Areas */}
       <main className="flex-grow" id="main-content">

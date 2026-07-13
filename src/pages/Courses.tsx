@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { SEO } from '../components/SEO';
 import { Calendar, Check, GraduationCap, Users, Star } from 'lucide-react';
 import { OrnamentDivider, StudioIcon } from '../components/CustomSvgs';
+import { TATTOO_COURSE_GALLERY } from '../data';
 
 export const Courses: FC = () => {
   const [activeCourse, setActiveCourse] = useState<'tattoo' | 'pmu'>('tattoo');
@@ -308,6 +309,41 @@ export const Courses: FC = () => {
                   </p>
                 </div>
               </div>
+
+              {/* Harmonische Tattoo Kurs Galerie am Ende der Seite (4 Bilder nebeneinander auf Desktop) */}
+              <section className="space-y-8 pt-4" id="tattoo-course-gallery">
+                <div className="text-center space-y-2">
+                  <span className="font-mono text-eyebrow uppercase tracking-[0.25em] text-old-gold">Praxis &amp; Atmosphäre</span>
+                  <h3 className="font-display text-2xl sm:text-3xl font-light text-soft-white">Einblicke in die Tattoo-Ausbildung</h3>
+                  <div className="w-12 h-[1px] bg-old-gold mx-auto mt-3" />
+                </div>
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 pt-2">
+                  {TATTOO_COURSE_GALLERY.map((item) => (
+                    <div
+                      key={item.id}
+                      className="bg-surface-dark border border-soft-white/10 hover:border-old-gold/40 transition-all duration-500 overflow-hidden group flex flex-col justify-between"
+                    >
+                      <div className="overflow-hidden bg-ink-black/40">
+                        <img
+                          src={item.imageUrl}
+                          alt={item.alt}
+                          className="w-full h-auto object-cover group-hover:scale-[1.03] transition-transform duration-700 ease-out"
+                          loading="lazy"
+                        />
+                      </div>
+                      <div className="p-4 bg-surface-dark/90 border-t border-soft-white/5 space-y-1">
+                        <h4 className="font-sans text-base font-medium text-soft-white group-hover:text-old-gold transition-colors">
+                          {item.title}
+                        </h4>
+                        <p className="text-caption text-soft-white/70 font-light">
+                          {item.subtitle}
+                        </p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </section>
 
             </div>
           ) : (

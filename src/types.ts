@@ -35,3 +35,22 @@ export interface Testimonial {
   date: string;
   style: string;
 }
+
+export interface PmuGalleryItem {
+  id: string;
+  title: string;
+  category: 'Augenbrauen' | 'Lippen' | 'Augenlider';
+  imageUrl: string;
+  alt: string;
+  subtitle: string;
+}
+
+export interface CourseGalleryItem {
+  id: string;
+  title: string;
+  category: string;
+  imageUrl: string;
+  alt: string;
+  subtitle: string;
+}
+

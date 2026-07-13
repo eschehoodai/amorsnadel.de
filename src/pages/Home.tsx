@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import { Link } from 'react-router-dom';
 import { SEO } from '../components/SEO';
-import { ArrowRight, Instagram, Star, ArrowDown, ExternalLink, Flame, MapPin, Clock, Mail } from 'lucide-react';
+import { ArrowRight, Instagram, Star, ArrowDown, ExternalLink, Flame, MapPin, Clock, Mail, Mountain, Sparkles, Heart, MessageSquare } from 'lucide-react';
 import { CompassRoseSvg, OrnamentDivider, StudioIcon } from '../components/CustomSvgs';
 import { TATTOO_PORTFOLIO, TESTIMONIALS, ARTISTS } from '../data';
 import { motion } from 'motion/react';
@@ -394,6 +394,161 @@ export const Home: FC = () => {
         </div>
       </section>
 
+      {/* 4.5 Autoren-Tattoos & Exklusive Projekte (Tattoo Meeting Video Section) */}
+      <section className="bg-ink-black py-28 border-t border-soft-white/10 relative overflow-hidden" id="autoren-tattoo-section">
+        {/* Subtle Ambient Glow Background */}
+        <div className="absolute top-1/2 left-1/4 -translate-y-1/2 w-[500px] h-[500px] bg-old-gold/5 rounded-full blur-[140px] pointer-events-none" />
+        <div className="absolute bottom-0 right-10 w-[400px] h-[400px] bg-tattoo-red/5 rounded-full blur-[140px] pointer-events-none" />
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          
+          {/* Section Header */}
+          <div className="text-center max-w-3xl mx-auto space-y-4 mb-16">
+            <div className="inline-flex items-center space-x-2 px-3 py-1 border border-old-gold/30 bg-ink-black/80">
+              <Sparkles className="h-3.5 w-3.5 text-old-gold" />
+              <span className="font-mono text-eyebrow uppercase tracking-[0.3em] text-old-gold">Exklusive Autoren-Tattoos</span>
+            </div>
+            <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-light text-soft-white">
+              Wo deine Geschichte beginnt
+            </h2>
+            <p className="font-hand text-xl sm:text-2xl text-old-gold/90 font-light italic">
+              &bdquo;Ein Tattoo ist mehr als nur Tinte unter der Haut.&ldquo;
+            </p>
+          </div>
+
+          {/* Cinematic Split Showcase Grid */}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+            
+            {/* Left Column: Cinematic Hochkant / Portrait Video Player (5 Cols) */}
+            <div className="lg:col-span-5 relative group max-w-[420px] mx-auto w-full">
+              {/* Decorative Frame Elements */}
+              <div className="absolute -inset-1 bg-gradient-to-r from-old-gold/40 via-transparent to-tattoo-red/40 rounded-none blur-sm opacity-70 group-hover:opacity-100 transition-opacity duration-700" />
+              
+              <div className="relative bg-surface-dark border border-soft-white/15 p-2 sm:p-3 shadow-[0_0_60px_rgba(0,0,0,0.85)]">
+                {/* Status / Location Tag overlaying top edge */}
+                <div className="absolute top-5 left-5 z-20 pointer-events-none flex items-center space-x-2 bg-ink-black/90 border border-old-gold/40 px-3 py-1.5 backdrop-blur-md">
+                  <Mountain className="h-3.5 w-3.5 text-old-gold" />
+                  <span className="font-mono text-caption uppercase tracking-widest text-soft-white">
+                    Outdoor &amp; Studio Sessions
+                  </span>
+                </div>
+
+                {/* Portrait / Hochkant Video Player (2:3 Aspect Ratio - 0% Cropping) */}
+                <div className="relative aspect-[2/3] w-full overflow-hidden bg-ink-black">
+                  <video
+                    src="/videos/autoren-tattoo-meeting.mp4"
+                    controls
+                    playsInline
+                    preload="metadata"
+                    className="w-full h-full object-cover"
+                  >
+                    Dein Browser unterstützt das HTML5-Video-Tag nicht.
+                  </video>
+                </div>
+
+                {/* Video Caption Bar */}
+                <div className="mt-3 px-3 py-2 flex items-center justify-between border-t border-soft-white/10 font-mono text-caption text-soft-white/60">
+                  <span>Autoren-Tattoo Meeting</span>
+                  <span className="text-old-gold">Einzigartiges Unikat</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Right Column: Narrative & Key Pillars (7 Cols) */}
+            <div className="lg:col-span-7 space-y-8">
+              
+              {/* Lead Narrative Text */}
+              <div className="space-y-4 border-l-2 border-old-gold pl-6">
+                <p className="text-body text-soft-white/90 font-light leading-relaxed">
+                  Manche Tattoos entstehen nicht im Studio – sondern dort, wo ihre Geschichte beginnt.
+                </p>
+                <p className="text-body text-soft-white/75 font-light leading-relaxed">
+                  Für besondere Projekte nehme ich mir Zeit: Wir sprechen über deine Idee, die Bedeutung, die Symbolik und erschaffen gemeinsam ein einzigartiges Unikat.
+                </p>
+              </div>
+
+              {/* Feature Cards / Pillars */}
+              <div className="space-y-4">
+                
+                {/* Pillar 1 */}
+                <div className="bg-surface-dark/70 border border-soft-white/10 p-5 hover:border-old-gold/40 transition-colors duration-300">
+                  <div className="flex items-start space-x-4">
+                    <div className="p-2.5 bg-ink-black border border-old-gold/30 text-old-gold shrink-0">
+                      <Mountain className="h-5 w-5" />
+                    </div>
+                    <div>
+                      <h3 className="font-display text-lg text-soft-white font-normal">
+                        Der perfekte Ort für deine Geschichte
+                      </h3>
+                      <p className="font-sans text-sm text-soft-white/70 mt-1 leading-relaxed">
+                        Wenn es zur Geschichte passt, wählen wir sogar den perfekten Ort – zum Beispiel in den Bergen, am See oder an einem anderen Ort mit persönlicher Bedeutung. 🌲⛰️
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Pillar 2 */}
+                <div className="bg-surface-dark/70 border border-soft-white/10 p-5 hover:border-old-gold/40 transition-colors duration-300">
+                  <div className="flex items-start space-x-4">
+                    <div className="p-2.5 bg-ink-black border border-old-gold/30 text-old-gold shrink-0">
+                      <Sparkles className="h-5 w-5" />
+                    </div>
+                    <div>
+                      <h3 className="font-display text-lg text-soft-white font-normal">
+                        Vertrauen &amp; Atmosphäre
+                      </h3>
+                      <p className="font-sans text-sm text-soft-white/70 mt-1 leading-relaxed">
+                        ✨ Ein exklusives Tattoo beginnt mit Vertrauen, einer starken Idee und der richtigen Atmosphäre für deine persönliche Symbolik.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Pillar 3 */}
+                <div className="bg-surface-dark/70 border border-soft-white/10 p-5 hover:border-old-gold/40 transition-colors duration-300">
+                  <div className="flex items-start space-x-4">
+                    <div className="p-2.5 bg-ink-black border border-old-gold/30 text-old-gold shrink-0">
+                      <Heart className="h-5 w-5" />
+                    </div>
+                    <div>
+                      <h3 className="font-display text-lg text-soft-white font-normal">
+                        Ein Leben lang an deiner Seite
+                      </h3>
+                      <p className="font-sans text-sm text-soft-white/70 mt-1 leading-relaxed">
+                        Gemeinsam entwickeln wir dein Motiv und schaffen ein Tattoo, das nicht nur gut aussieht, sondern eine Geschichte erzählt und dich ein Leben lang begleitet. ❤️
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+
+              {/* Call to Action Card */}
+              <div className="pt-4 space-y-4">
+                <p className="font-hand text-lg text-old-gold">
+                  Wenn auch du von einem individuellen, tief durchdachten Autoren-Tattoo träumst, das wirklich zu dir passt, dann schreib mir. 💬
+                </p>
+                <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
+                  <Link
+                    to="/buchung"
+                    className="inline-flex items-center justify-center space-x-3 px-8 py-4 bg-old-gold hover:bg-soft-white text-ink-black font-semibold font-mono text-xs uppercase tracking-wider transition-colors duration-300 shadow-lg"
+                  >
+                    <MessageSquare className="h-4 w-4 text-ink-black" />
+                    <span>Schreib mir jetzt – Projekt anfragen</span>
+                  </Link>
+                </div>
+                <p className="font-mono text-caption text-soft-white/50">
+                  📩 Schreib mir jetzt – ich freue mich auf dein Projekt!
+                </p>
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+      </section>
+
       {/* 5. Testimonial slide / list */}
       <section className="bg-surface-dark py-24 border-t border-soft-white/10" id="testimonials-section">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -403,12 +558,12 @@ export const Home: FC = () => {
             <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-light text-soft-white">Kundenstimmen &amp; Heilung</h2>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {/* Mobile View: Vertikal gestapelte Cards */}
+          <div className="grid grid-cols-1 gap-6 md:hidden">
             {TESTIMONIALS.map((t) => (
               <div
-                key={t.id}
+                key={`mobile-${t.id}`}
                 className="bg-ink-black border border-soft-white/10 p-8 space-y-4 relative flex flex-col justify-between"
-                id={`testimonial-${t.id}`}
               >
                 <div className="space-y-4">
                   {/* Rating Stars */}
@@ -431,6 +586,42 @@ export const Home: FC = () => {
                 </div>
               </div>
             ))}
+          </div>
+
+          {/* Desktop View: Sanft fließender, langsamer Marquee-Verlauf (stoppt bei Hover) */}
+          <div className="hidden md:block overflow-hidden relative -mx-4 px-4">
+            {/* Fade-Gradients am Rand für weiche Übergänge */}
+            <div className="absolute left-0 top-0 bottom-0 w-16 bg-gradient-to-r from-surface-dark to-transparent z-10 pointer-events-none" />
+            <div className="absolute right-0 top-0 bottom-0 w-16 bg-gradient-to-l from-surface-dark to-transparent z-10 pointer-events-none" />
+
+            <div className="animate-marquee-slow space-x-8">
+              {[...TESTIMONIALS, ...TESTIMONIALS].map((t, idx) => (
+                <div
+                  key={`desktop-${t.id}-${idx}`}
+                  className="bg-ink-black border border-soft-white/10 p-8 space-y-4 relative flex flex-col justify-between w-[380px] shrink-0"
+                >
+                  <div className="space-y-4">
+                    {/* Rating Stars */}
+                    <div className="flex space-x-1">
+                      {[...Array(t.rating)].map((_, i) => (
+                        <Star key={i} className="h-4.5 w-4.5 fill-old-gold text-old-gold" />
+                      ))}
+                    </div>
+                    <p className="text-body text-soft-white/80 italic font-light">
+                      &bdquo;{t.text}&ldquo;
+                    </p>
+                  </div>
+                  
+                  <div className="pt-6 border-t border-soft-white/5 flex items-center justify-between">
+                    <div>
+                      <span className="block font-medium text-body text-soft-white">{t.name}</span>
+                      <span className="block font-mono text-eyebrow text-tattoo-red uppercase tracking-wider">{t.style}</span>
+                    </div>
+                    <span className="font-mono text-caption text-soft-white/50">{t.date}</span>
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
 
           {/* Testimonial CTA button */}
@@ -496,6 +687,51 @@ export const Home: FC = () => {
           </div>
         </div>
 
+        {/* Studio Impressionen - 2-Spalten Bildergalerie */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-4xl mx-auto">
+          <div className="bg-surface-dark border border-soft-white/10 hover:border-old-gold/40 transition-all duration-500 overflow-hidden group flex flex-col justify-between text-left">
+            <div className="overflow-hidden bg-ink-black/40 h-64 sm:h-80 relative">
+              <img
+                src="/images/studio/tattoo-studio-amorsnadel-kamenz-dresden-atelier-1.webp"
+                alt="AmorsNadel Tattoo Studio Atelier in Kamenz und Dresden – exklusives Ambiente für Custom Tattoos"
+                className="w-full h-full object-cover object-center group-hover:scale-[1.03] transition-transform duration-700 ease-out"
+                loading="lazy"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-ink-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+            </div>
+            <div className="p-5 bg-surface-dark/90 border-t border-soft-white/5 space-y-1">
+              <span className="font-mono text-eyebrow uppercase tracking-[0.2em] text-old-gold block">AmorsNadel Studio</span>
+              <h3 className="font-sans text-base font-medium text-soft-white group-hover:text-old-gold transition-colors">
+                Privates Atelier &amp; Beratung
+              </h3>
+              <p className="text-caption text-soft-white/70 font-light">
+                Ruhige, exklusive Atmosphäre – 100% Fokus auf dich und dein individuelles Motiv.
+              </p>
+            </div>
+          </div>
+
+          <div className="bg-surface-dark border border-soft-white/10 hover:border-old-gold/40 transition-all duration-500 overflow-hidden group flex flex-col justify-between text-left">
+            <div className="overflow-hidden bg-ink-black/40 h-64 sm:h-80 relative">
+              <img
+                src="/images/studio/tattoo-studio-amorsnadel-kamenz-dresden-atelier-2.webp"
+                alt="Hygienisch ausgestatteter Tattoo Arbeitsbereich und professionelles Equipment im Studio AmorsNadel Kamenz Dresden"
+                className="w-full h-full object-cover object-center group-hover:scale-[1.03] transition-transform duration-700 ease-out"
+                loading="lazy"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-ink-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+            </div>
+            <div className="p-5 bg-surface-dark/90 border-t border-soft-white/5 space-y-1">
+              <span className="font-mono text-eyebrow uppercase tracking-[0.2em] text-old-gold block">Höchste Standards</span>
+              <h3 className="font-sans text-base font-medium text-soft-white group-hover:text-old-gold transition-colors">
+                Hygienischer Arbeitsplatz
+              </h3>
+              <p className="text-caption text-soft-white/70 font-light">
+                Kompromisslose Sauberkeit, steriles Equipment &amp; modernste Technik für dein Tattoo.
+              </p>
+            </div>
+          </div>
+        </div>
+
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 font-mono text-xs max-w-4xl mx-auto">
           {/* Studio Address */}
           <div className="space-y-3 bg-surface-dark/40 border border-soft-white/5 p-6 text-left">
@@ -504,8 +740,9 @@ export const Home: FC = () => {
               <span className="font-bold tracking-wider uppercase text-eyebrow">Studio</span>
             </div>
             <div className="text-soft-white/80 leading-relaxed font-sans text-body pt-2">
-              <p className="font-medium text-soft-white">AmorsNadel Atelier</p>
-              <p className="mt-1 text-soft-white/70">Exklusives Home-Studio &amp; Mobiler Service in Dresden, Kamenz, Zittau</p>
+              <p className="font-medium text-soft-white">Tattoo-Studio AmorsNadel</p>
+              <p className="mt-1 text-soft-white/80 font-mono text-caption text-old-gold">Bahnhofstr. 17, 02689 Sohland</p>
+              <p className="mt-1 text-caption text-soft-white/60">Termine nach Vereinbarung • Mobiler Service auf Anfrage</p>
             </div>
           </div>
 

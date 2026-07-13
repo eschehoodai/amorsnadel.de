@@ -112,3 +112,44 @@ body {
 .group:hover .studio-icon {
   transform: scale(1.08);
 }
+
+/* Langsamer horizontaler Marquee-Verlauf für Desktop */
+@keyframes marquee-horizontal {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee-slow {
+  display: flex;
+  width: max-content;
+  animation: marquee-horizontal 55s linear infinite;
+}
+
+.animate-marquee-slow:hover {
+  animation-play-state: paused;
+}
+
+/* Schnelleres und feineres Marquee für das Bekanntmachungs-Laufbanner */
+@keyframes marquee-banner {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee-banner {
+  display: flex;
+  width: max-content;
+  animation: marquee-banner 42s linear infinite;
+}
+
+.animate-marquee-banner:hover {
+  animation-play-state: paused;
+}
+

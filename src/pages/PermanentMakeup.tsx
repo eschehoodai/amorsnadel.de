@@ -1,11 +1,33 @@
-import { FC } from 'react';
+import { FC, useState, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { SEO } from '../components/SEO';
-import { Check, Sparkles, Heart, Shield, Award, Calendar, Eye, Smile, Star } from 'lucide-react';
+import { Check, Sparkles, Award, Calendar, Eye, Smile, ChevronLeft, ChevronRight } from 'lucide-react';
 import { OrnamentDivider } from '../components/CustomSvgs';
-import { motion } from 'motion/react';
+import { PMU_GALLERY } from '../data';
+
 
 export const PermanentMakeup: FC = () => {
+  const [selectedCategory, setSelectedCategory] = useState<string>('Alle');
+  const sliderRef = useRef<HTMLDivElement | null>(null);
+
+  const categories = ['Alle', 'Augenbrauen', 'Lippen', 'Augenlider'];
+
+  const filteredGallery = selectedCategory === 'Alle'
+    ? PMU_GALLERY
+    : PMU_GALLERY.filter((item) => item.category === selectedCategory);
+
+  const handleScrollLeft = () => {
+    if (sliderRef.current) {
+      sliderRef.current.scrollBy({ left: -360, behavior: 'smooth' });
+    }
+  };
+
+  const handleScrollRight = () => {
+    if (sliderRef.current) {
+      sliderRef.current.scrollBy({ left: 360, behavior: 'smooth' });
+    }
+  };
+
   return (
     <div className="bg-transparent min-h-screen pt-28 pb-20 px-4 sm:px-6 lg:px-8 relative" id="pmu-page">
       <SEO 
@@ -269,6 +291,94 @@ export const PermanentMakeup: FC = () => {
           <div className="bg-surface-dark/60 border border-soft-white/10 p-6 text-center text-body text-soft-white/80 max-w-xl mx-auto italic font-light">
             „Mein Ziel ist es nicht, Ihr Gesicht zu verändern, sondern Ihre natürliche Schönheit dauerhaft zu unterstreichen.“
           </div>
+        </section>
+
+        {/* PMU Gallery Section (Card Carousel / Slider without Lightbox) */}
+        <section className="space-y-10" id="pmu-gallery">
+          <div className="text-center space-y-2">
+            <span className="font-mono text-eyebrow uppercase tracking-[0.25em] text-tattoo-red">Ergebnisse &amp; Inspiration</span>
+            <h2 className="font-display text-2xl sm:text-3xl font-light text-soft-white">Unsere Permanent Make-up Galerie</h2>
+            <div className="w-12 h-[1px] bg-old-gold mx-auto mt-4" />
+            <p className="text-body text-soft-white/80 max-w-xl mx-auto font-light pt-2">
+              Lass dich von unseren Ausführungen inspirieren. Nutze die Pfeile oder wische nach links und rechts, um durch die Ergebnisse zu navigieren.
+            </p>
+          </div>
+
+          {/* Filter Categories & Slider Controls */}
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-4 border-b border-soft-white/10 pb-6">
+            <div className="flex flex-wrap justify-center sm:justify-start gap-2">
+              {categories.map((cat) => (
+                <button
+                  key={cat}
+                  onClick={() => setSelectedCategory(cat)}
+                  className={`px-4 py-2 font-mono text-xs uppercase tracking-wider transition-all duration-300 border ${
+                    selectedCategory === cat
+                      ? 'bg-old-gold border-old-gold text-ink-black font-bold'
+                      : 'bg-transparent border-soft-white/10 text-soft-white/70 hover:border-soft-white/40 hover:text-soft-white'
+                  }`}
+                >
+                  {cat}
+                </button>
+              ))}
+            </div>
+
+            <div className="flex items-center space-x-3 shrink-0">
+              <button
+                onClick={handleScrollLeft}
+                aria-label="Galerie nach links scrollen"
+                className="h-10 w-10 border border-soft-white/20 hover:border-old-gold bg-surface-dark hover:bg-old-gold/10 text-soft-white hover:text-old-gold flex items-center justify-center transition-colors duration-300"
+              >
+                <ChevronLeft className="h-5 w-5" />
+              </button>
+              <button
+                onClick={handleScrollRight}
+                aria-label="Galerie nach rechts scrollen"
+                className="h-10 w-10 border border-soft-white/20 hover:border-old-gold bg-surface-dark hover:bg-old-gold/10 text-soft-white hover:text-old-gold flex items-center justify-center transition-colors duration-300"
+              >
+                <ChevronRight className="h-5 w-5" />
+              </button>
+            </div>
+          </div>
+
+          {/* Slider Cards Track */}
+          {filteredGallery.length === 0 ? (
+            <div className="text-center py-16 text-soft-white/50 font-mono text-body">
+              Momentan keine Bilder in dieser Kategorie verfügbar.
+            </div>
+          ) : (
+            <div
+              ref={sliderRef}
+              className="flex gap-6 overflow-x-auto snap-x snap-mandatory scroll-smooth pb-4 pt-1 no-scrollbar"
+            >
+              {filteredGallery.map((item) => (
+                <div
+                  key={item.id}
+                  className="min-w-[280px] sm:min-w-[340px] md:min-w-[360px] snap-start flex-shrink-0 bg-surface-dark border border-soft-white/10 hover:border-old-gold/40 transition-all duration-300 group overflow-hidden flex flex-col justify-between"
+                >
+                  <div className="relative aspect-[4/3] overflow-hidden bg-ink-black/50">
+                    <img
+                      src={item.imageUrl}
+                      alt={item.alt}
+                      className="w-full h-full object-cover group-hover:scale-[1.04] transition-transform duration-700 ease-out"
+                      loading="lazy"
+                    />
+                    <span className="absolute top-3 right-3 bg-ink-black/85 text-old-gold font-mono text-[10px] uppercase tracking-widest px-2.5 py-1 border border-old-gold/30">
+                      {item.category}
+                    </span>
+                  </div>
+
+                  <div className="p-5 space-y-1.5 bg-surface-dark/95 border-t border-soft-white/5">
+                    <h3 className="font-sans text-lg font-semibold text-soft-white group-hover:text-old-gold transition-colors">
+                      {item.title}
+                    </h3>
+                    <p className="text-caption text-soft-white/75 font-light">
+                      {item.subtitle}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          )}
         </section>
 
         {/* CTA Banner Section */}

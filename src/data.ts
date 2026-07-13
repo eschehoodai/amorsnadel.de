@@ -1,4 +1,4 @@
-import { TattooItem, Artist, FaqItem, Testimonial } from './types';
+import { TattooItem, Artist, FaqItem, Testimonial, PmuGalleryItem, CourseGalleryItem } from './types';
 
 export const TATTOO_PORTFOLIO: TattooItem[] = [
   {
@@ -130,26 +130,147 @@ export const FAQS: FaqItem[] = [
 export const TESTIMONIALS: Testimonial[] = [
   {
     id: 't1',
-    name: 'Sarah K.',
-    text: 'Sergeys Kalligrafie an meiner Wirbelsäule ist ein Meisterwerk. Die feinen Linien sind auch nach Monaten noch messerscharf. Das ganze Studio strahlt eine so warme und beruhigende Atmosphäre aus. Unfassbare Präzision!',
+    name: 'Peggy Franetzki',
+    text: 'Ist super 👌 kann man nur empfehlen. Habe bei Ihm auch schon bissl was machen lassen. Ist wirklich super und mit mega viel Erfahrungen, Vorschlägen usw. 🥰',
     rating: 5,
-    date: 'Vor 2 Wochen',
-    style: 'Kalligrafie'
+    date: 'Vor 3 Wochen',
+    style: 'Verifizierte Bewertung'
   },
   {
     id: 't2',
-    name: 'Dennis M.',
-    text: 'Wer ein wikingisches oder geometrisches Tattoo will, muss zu Sergey. Er hat mein voriges Tattoo perfekt überarbeitet und einen gigantischen Ärmel gestochen. Spitzenklasse in Beratung und Umsetzung.',
+    name: 'Viktor Lipin',
+    text: 'Ich war schon mehrmals bei ihm, war immer zufrieden und würde ihn weiterempfehlen.',
     rating: 5,
-    date: 'Vor 1 Monat',
-    style: 'Wikingisch / Blackwork'
+    date: 'Vor 2 Monaten',
+    style: 'Verifizierte Bewertung'
   },
   {
     id: 't3',
-    name: 'Emilia L.',
-    text: 'Ich habe mein erstes Fineline-Tattoo bei AmorsNadel stechen lassen. Die Beratung und die Pflege-Tipps danach waren erstklassig. Ich habe mich absolut sicher und professionell aufgehoben gefühlt.',
+    name: 'Ivonne Müller',
+    text: 'Alles, was ich von ihm gesehen habe, war super. Ich bin wirklich sehr zufrieden mit ihm – und nicht nur ich.',
     rating: 5,
-    date: 'Vor 3 Tagen',
-    style: 'Botanisch Fineline'
+    date: 'Vor 5 Monaten',
+    style: 'Verifizierte Bewertung'
+  },
+  {
+    id: 't4',
+    name: 'Cindy Gebert',
+    text: 'Ich kann nur sagen: Er macht sehr gute Arbeit. Habe bis jetzt alles bei ihm machen lassen und kann mich nicht beschweren.',
+    rating: 5,
+    date: 'Vor 8 Monaten',
+    style: 'Verifizierte Bewertung'
+  }
+];
+
+export const PMU_GALLERY: PmuGalleryItem[] = [
+  // 3x Augenbrauen
+  {
+    id: 'pmu-1',
+    title: 'Powder Brows Schattierung',
+    category: 'Augenbrauen',
+    imageUrl: '/images/pmu/permanent-makeup-augenbrauen-powder-brows-1.webp',
+    alt: 'Sanft schattierte Powder Brows für harmonische Konturen in Dresden',
+    subtitle: 'Sanfte Puderschattierung für vollen und natürlichen Ausdruck'
+  },
+  {
+    id: 'pmu-2',
+    title: 'Präzise Brauen-Definition',
+    category: 'Augenbrauen',
+    imageUrl: '/images/pmu/permanent-makeup-augenbrauen-haerchenzeichnung-2.webp',
+    alt: 'Natürliche Augenbrauen Pigmentierung und Formkorrektur bei AmorsNadel',
+    subtitle: 'Perfekte Symmetrie & harmonische Brauen-Kontur'
+  },
+  {
+    id: 'pmu-6',
+    title: 'Vorher/Nachher Transformation',
+    category: 'Augenbrauen',
+    imageUrl: '/images/pmu/permanent-makeup-vorher-nachher-dresden-1.webp',
+    alt: 'Permanent Make-up Vorher Nachher Ergebnis für Augenbrauen und Lippen',
+    subtitle: 'Harmonisches Gesamtbild & typgerechte Formkorrektur'
+  },
+  // 3x Augenlider
+  {
+    id: 'pmu-3',
+    title: 'Eyeliner mit Schattierung',
+    category: 'Augenlider',
+    imageUrl: '/images/pmu/permanent-makeup-eyeliner-schattiert-dresden-1.webp',
+    alt: 'Eyeliner Permanent Make-up mit weicher Schattierung am Lidrand',
+    subtitle: 'Sanft schattierter Lidstrich & definierter Wimpernkranz'
+  },
+  {
+    id: 'pmu-4',
+    title: 'Feiner Winged Eyeliner',
+    category: 'Augenlider',
+    imageUrl: '/images/pmu/permanent-makeup-eyeliner-winged-dresden-2.webp',
+    alt: 'Feiner Lidstrich Permanent Make-up für strahlende Augen',
+    subtitle: 'Präzise geschwungener Lidstrich für strahlenden Blick'
+  },
+  {
+    id: 'pmu-5',
+    title: 'Wimpernkranzverdichtung',
+    category: 'Augenlider',
+    imageUrl: '/images/pmu/permanent-makeup-eyeliner-wimpernkranz-dresden-3.webp',
+    alt: 'Dezente Wimpernkranzverdichtung Permanent Make Up für optisch dichtere Wimpern',
+    subtitle: 'Dezente Schattierung am Wimpernansatz für ausdrucksstarke Augen'
+  },
+  // 3x Lippen
+  {
+    id: 'pmu-7',
+    title: 'Aquarell Lips Vorher/Nachher',
+    category: 'Lippen',
+    imageUrl: '/images/pmu/permanent-makeup-lippen-vorher-nachher-dresden-1.webp',
+    alt: 'Aquarell Lippen Permanent Make-up Vorher Nachher Vergleich Dresden',
+    subtitle: 'Natürliche Auffrischung der Lippenfarbe und sanfte Kontur'
+  },
+  {
+    id: 'pmu-8',
+    title: 'Aquarell Lips Schattierung',
+    category: 'Lippen',
+    imageUrl: '/images/pmu/permanent-makeup-lippen-aquarell-lips-dresden-2.webp',
+    alt: 'Natürliche Lippenpigmentierung Aquarell Lips mit sanftem Glanz',
+    subtitle: 'Gleichmäßige Farbverläufe & seidiger Glanz'
+  },
+  {
+    id: 'pmu-9',
+    title: 'Lippen-Kontur & Vollschattierung',
+    category: 'Lippen',
+    imageUrl: '/images/pmu/permanent-makeup-lippen-kontur-vollschattierung-dresden-3.webp',
+    alt: 'Lippenkontur und Vollschattierung Permanent Make-up Vorher Nachher',
+    subtitle: 'Makellose Symmetrie & dauerhaft frisches Volumen'
+  }
+];
+
+export const TATTOO_COURSE_GALLERY: CourseGalleryItem[] = [
+  {
+    id: 'kurs-4',
+    title: '1-zu-1 Coaching im Studio-Atelier',
+    category: 'Atelier',
+    imageUrl: '/images/kurse/tattoo-studio-ausbildung-amorsnadel-dresden-4.webp',
+    alt: 'Tattoo Studio Ausbildung AmorsNadel Academy Dresden',
+    subtitle: 'Authentische Studioatmosphäre & professionelles Equipment'
+  },
+  {
+    id: 'kurs-2',
+    title: 'Aufbau & Vorbereitung des Arbeitsplatzes',
+    category: 'Hygiene',
+    imageUrl: '/images/kurse/tattoo-kurs-schulung-arbeitsplatz-dresden-2.webp',
+    alt: 'Professionelle Arbeitsplatzvorbereitung und Hygiene im Tattoo Kurs Dresden',
+    subtitle: 'Steriles Arbeiten nach Studio-Standard'
+  },
+  {
+    id: 'kurs-1',
+    title: 'Praktisches Üben an der Tattoo-Station',
+    category: 'Praxis',
+    imageUrl: '/images/kurse/tattoo-ausbildung-praxis-uebung-dresden-1.webp',
+    alt: 'Tattoo Ausbildung Praxis und Linienführung in Dresden',
+    subtitle: 'Fokus auf präzises Handling & ergonomische Haltung'
+  },
+  {
+    id: 'kurs-3',
+    title: 'Intensive Betreuung auf Kunsthaut',
+    category: 'Schulung',
+    imageUrl: '/images/kurse/tattoo-academy-kunsthaut-ausbildung-dresden-3.webp',
+    alt: 'Tattoo Academy AmorsNadel Üben auf Kunsthaut in Dresden',
+    subtitle: 'Schritt-für-Schritt-Anleitung durch erfahrene Dozenten'
   }
 ];
