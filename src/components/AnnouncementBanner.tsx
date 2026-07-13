@@ -6,12 +6,12 @@ export const AnnouncementBanner: FC = () => {
   const announcements = [
     {
       id: 1,
-      text: 'BEKANNTMACHUNG: Ab sofort vereinbare ich Termine im Tattoo-Studio unter der Adresse',
+      text: 'BEKANNTMACHUNG: Ab sofort empfange ich Kunden als Gast-Tätowierer unter der Adresse',
       highlight: 'Bahnhofstr. 17, 02689 Sohland an der Spree',
     },
     {
       id: 2,
-      text: 'NEUER STANDORT: Besuche das Studio in',
+      text: 'STANDORTE: Homestudio in Kamenz & Gast-Tätowierer Sessions in',
       highlight: 'Bahnhofstr. 17, 02689 Sohland',
     },
   ];

@@ -98,10 +98,11 @@ export const Footer: FC = () => {
             <ul className="space-y-3">
               <li className="flex items-start space-x-3 text-sm text-soft-white/75">
                 <MapPin className="h-4.5 w-4.5 text-tattoo-red shrink-0 mt-0.5" />
-                <span>
-                  Tattoo-Studio AmorsNadel<br />
-                  Bahnhofstr. 17, 02689 Sohland<br />
-                  Termine nach Vereinbarung
+                <span className="space-y-1 block">
+                  <span className="block text-soft-white font-medium">AmorsNadel Homestudio</span>
+                  <span className="block text-xs text-old-gold">Neschwitzer Str. 11, 01917 Kamenz</span>
+                  <span className="block text-soft-white font-medium pt-1">Gast-Tätowierer Sessions</span>
+                  <span className="block text-xs text-old-gold">Bahnhofstr. 17, 02689 Sohland</span>
                 </span>
               </li>
               <li>

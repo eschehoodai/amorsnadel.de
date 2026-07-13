@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import { Link } from 'react-router-dom';
 import { SEO } from '../components/SEO';
-import { ArrowRight, Instagram, Star, ArrowDown, ExternalLink, Flame, MapPin, Clock, Mail, Mountain, Sparkles, Heart, MessageSquare } from 'lucide-react';
+import { ArrowRight, Instagram, Star, ArrowDown, ExternalLink, Flame, MapPin, Clock, Mail, Mountain, Sparkles, Heart, MessageSquare, Home as HomeIcon } from 'lucide-react';
 import { CompassRoseSvg, OrnamentDivider, StudioIcon } from '../components/CustomSvgs';
 import { TATTOO_PORTFOLIO, TESTIMONIALS, ARTISTS } from '../data';
 import { motion } from 'motion/react';
@@ -682,7 +682,7 @@ export const Home: FC = () => {
           <div className="space-y-4">
             <h2 className="font-display text-3xl font-light text-soft-white">Atelier &amp; Standorte</h2>
             <p className="text-body text-soft-white/80 font-light">
-              Mein Studio findest du in Kamenz und Dresden – auf Wunsch komme ich auch mobil zu dir. Ich arbeite ausschließlich nach Termin, damit ich mir für dich und dein Motiv die volle Zeit nehmen kann. Stell einfach deine Anfrage, und wir finden gemeinsam deinen Wunschtermin.
+              Mein Homestudio befindet sich in Kamenz (Neschwitzer Str. 11), außerdem empfange ich meine Kunden als Gast-Tätowierer in Sohland (Bahnhofstr. 17). Ich arbeite ausschließlich nach Termin, damit ich mir für dich und dein Motiv die volle Zeit nehmen kann. Stell einfach deine Anfrage, und wir finden gemeinsam deinen Wunschtermin.
             </p>
           </div>
         </div>
@@ -732,17 +732,30 @@ export const Home: FC = () => {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 font-mono text-xs max-w-4xl mx-auto">
-          {/* Studio Address */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 font-mono text-xs max-w-6xl mx-auto">
+          {/* Homestudio Address */}
+          <div className="space-y-3 bg-surface-dark/40 border border-soft-white/5 p-6 text-left">
+            <div className="flex items-center space-x-2 text-old-gold pb-2 border-b border-soft-white/10">
+              <HomeIcon className="h-4 w-4" />
+              <span className="font-bold tracking-wider uppercase text-eyebrow">Homestudio</span>
+            </div>
+            <div className="text-soft-white/80 leading-relaxed font-sans text-body pt-2">
+              <p className="font-medium text-soft-white">AmorsNadel Homestudio</p>
+              <p className="mt-1 text-soft-white/80 font-mono text-caption text-old-gold">Neschwitzer Str. 11, 01917 Kamenz</p>
+              <p className="mt-1 text-caption text-soft-white/60">Privates Atelier • Termine nach Vereinbarung</p>
+            </div>
+          </div>
+
+          {/* Gast-Tätowierer Address */}
           <div className="space-y-3 bg-surface-dark/40 border border-soft-white/5 p-6 text-left">
             <div className="flex items-center space-x-2 text-old-gold pb-2 border-b border-soft-white/10">
               <MapPin className="h-4 w-4" />
-              <span className="font-bold tracking-wider uppercase text-eyebrow">Studio</span>
+              <span className="font-bold tracking-wider uppercase text-eyebrow">Gast-Tätowierer</span>
             </div>
             <div className="text-soft-white/80 leading-relaxed font-sans text-body pt-2">
-              <p className="font-medium text-soft-white">Tattoo-Studio AmorsNadel</p>
+              <p className="font-medium text-soft-white">Gast-Tätowierer Sessions</p>
               <p className="mt-1 text-soft-white/80 font-mono text-caption text-old-gold">Bahnhofstr. 17, 02689 Sohland</p>
-              <p className="mt-1 text-caption text-soft-white/60">Termine nach Vereinbarung • Mobiler Service auf Anfrage</p>
+              <p className="mt-1 text-caption text-soft-white/60">Kundenempfang als Gast-Tätowierer vor Ort</p>
             </div>
           </div>
 
